@@ -41,8 +41,8 @@
       var listGroupItem = $("<li class='list-group-item'>");
 
       listGroupItem.append($("<h2>").text("Name: " + data[i].name));
-      listGroupItem.append($("<h3>").text("Phone: " + data[i].photo));
-      listGroupItem.append($("<h3>").text("Scores: " + data[i].questions));
+      listGroupItem.append($("<IMG>").attr("src", data[i].photo).css({"height": "250", "width": "230"}));
+      listGroupItem.append($("<h3>").text("Looking for: " + data[i].sex));
 
       $("#table").append(listGroupItem);
     }
