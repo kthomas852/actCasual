@@ -17,14 +17,6 @@
             <h1>Act Casual</h1>
             <h3>Please finish the survey below to be matched.</h3>
             <hr>
-            <a href="/table">
-                <button class="btn btn-danger btn-lg">
-                    <span class="fa fa-eye"></span> View Matches</button>
-            </a>
-            <a href="/reservation">
-                <button class="btn btn-danger btn-lg">
-                    <span class="fa fa-th-list"></span> Make Reservation</button>
-            </a>
             <a href="/">
                 <button class="btn btn-danger btn-lg">
                     <span class="fa fa-th-list"></span> Home</button>
@@ -59,7 +51,7 @@
                                     <p>
                                        <label>I'm interested in?</label>
                                        <br>
-                                       <select id = "Q1">
+                                       <select id = "sex">
                                          <option value = "1">Men</option>
                                          <option value = "2">Women</option>
                                          <option value = "3">Both</option>
@@ -98,6 +90,72 @@
                                           <option value = "5">Work, Work, Work, Work, Work!!!! and TRAVEL!</option>
                                         </select>    
                                     <br>
+                                    <br>
+                                    <label>Pets?:</label>
+                                    <br>
+                                        <select id = "Q5">
+                                          <option value = "1">Not in my house!</option>
+                                          <option value = "2">Cat Person</option>
+                                          <option value = "3">All about the Kitty Doggy combo</option>
+                                          <option value = "4">Dog Person</option>
+                                          <option value = "5">I love Exotic animals</option>
+                                        </select>    
+                                    <br>
+                                    <br>
+                                    <label>Smoking:</label>
+                                    <br>
+                                        <select id = "Q6">
+                                          <option value = "1">Non Smoker</option>
+                                          <option value = "2">Only when I'm drinking</option>
+                                          <option value = "3">Once a day</option>
+                                          <option value = "4">Twice a day</option>
+                                          <option value = "5">Like a Chimney</option>
+                                        </select>    
+                                    <br>
+                                    <br>
+                                    <label>Drinking:</label>
+                                    <br>
+                                        <select id = "Q7">
+                                          <option value = "1">None for me thanks</option>
+                                          <option value = "2">Only on special Occations</option>
+                                          <option value = "3">Once a Month</option>
+                                          <option value = "4">Once a Week</option>
+                                          <option value = "5">Like a fish</option>
+                                        </select>    
+                                    <br>
+                                    <br>
+                                    <label>Where do you prefer to live:</label>
+                                    <br>
+                                        <select id = "Q8">
+                                          <option value = "1">In the country with no one else around</option>
+                                          <option value = "2">In a small town</option>
+                                          <option value = "3">In the suburbs</option>
+                                          <option value = "4">Average city</option>
+                                          <option value = "5">Biggest city you got please!</option>
+                                        </select>    
+                                    <br>
+                                    <br>
+                                    <label>Major Interests:</label>
+                                    <br>
+                                        <select id = "Q9">
+                                          <option value = "1">Working all the time</option>
+                                          <option value = "2">Watching Sports</option>
+                                          <option value = "3">Activly Playing Sports</option>
+                                          <option value = "4">Movies</option>
+                                          <option value = "5">Motorcycles and/or fast cars</option>
+                                        </select>    
+                                    <br>
+                                    <br>
+                                    <label>How important is physical appearance to you:</label>
+                                    <br>
+                                        <select id = "Q10">
+                                          <option value = "1">Love is blind</option>
+                                          <option value = "2">Only dressed up for special occations</option>
+                                          <option value = "3">As long as you can match the crowd you're in</option>
+                                          <option value = "4">Looking Snazzy more of the time</option>
+                                          <option value = "5">They better be a TEN</option>
+                                        </select>    
+                                    <br>
     
                                 </p>
                                  </fieldset>
@@ -118,20 +176,20 @@
     <script>
         $(".submit").on("click", function(){
 let combined = [
-    $('#Q1').val().trim(),
     $('#Q2').val().trim(),
     $('#Q3').val().trim(),
     $('#Q4').val().trim(),
-    /*$('#Q5').val().trim(),
+    $('#Q5').val().trim(),
     $('#Q6').val().trim(),
     $('#Q7').val().trim(),
     $('#Q8').val().trim(),
     $('#Q9').val().trim(),
-        $('#Q10').val().trim()*/];
+    $('#Q10').val().trim()];
 // Here we grab the form elements
 var newActor = {
     name: $('#name').val().trim(),
     photo: $('#pic').val().trim(),
+    sex: $('#sex').val().trim(),
     questions: combined
 };
 
@@ -154,9 +212,8 @@ function(data){
     // Clear the form when submitting
    $('#name').val("");
     $('#pic').val("");
-    $('#Q1').val("");
-    $('#Q2').val("");
-
+    $('#sex').val("");
+    window.location.href = "/match";
 });
 
 return false;
